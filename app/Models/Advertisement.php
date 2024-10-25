@@ -18,6 +18,7 @@ class Advertisement extends Model
         'price',
         'currency_id',
         'status',
+        'view',
     ];
 
     public function photos()

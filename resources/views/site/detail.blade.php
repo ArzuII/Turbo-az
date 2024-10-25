@@ -24,7 +24,7 @@
 
                   </a>
               </div>
-          </div>
+</div>
             {{--End of Slider--}}
 
             <div>
@@ -85,7 +85,7 @@
             </div>
             <div>
               @foreach($advertisement->supplies as $advertisement->supply)
-                  <span class="badge bg-secondary">{{ $advertisement->supply->name }}</span>              
+                  <span class="badge bg-secondary">{{ $advertisement->supply->name }}</span>
               @endforeach
             </div>
             <hr />
@@ -160,7 +160,7 @@
     new Carousel(container, options, {
         Thumbs
     });
-    </script>
+</script>
 
   @endpush
   {{-- End of Fancy-Box For Slider --}}

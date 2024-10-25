@@ -27,9 +27,9 @@ class CommandController extends Controller
 
         // $user = User::query()
         //     ->where('id', $advertisement->created_by)
-        //     ->first();        
+        //     ->first();
         }
-        
+
         Advertisement::query()
             ->where('id', $id)
             ->update([
@@ -37,12 +37,12 @@ class CommandController extends Controller
             ]);
 
         $body = 'Elanınız dərc olundu. Elanın linki ';
-        
+
         Mail::send('mail.standart', compact('body'), function ($message) use ($advertisement) {
             $message->to("$advertisement->email")->subject('Elanınız tısdiqləndi');
         });
 
-        return redirect()->back();    
+        return redirect()->back();
     }
 
     public function reject($id)
@@ -59,9 +59,9 @@ class CommandController extends Controller
             ->first();
 
         if (!$advertisement) {
-            return to_route('dashboard.advertisement.index')->with('fail', '    Advertisement already exists.');      
+            return to_route('dashboard.advertisement.index')->with('fail', '    Advertisement already exists.');
         }
-        
+
         Advertisement::query()
             ->where('id', $id)
             ->update([
@@ -69,10 +69,10 @@ class CommandController extends Controller
             ]);
 
         $body = 'Elanınız dərc olunmadı';
-        
+
         Mail::send('mail.standart', compact('body'), function ($message) use ($advertisement) {
             $message->to("$advertisement->email")->subject('Elan müraciətiniz rədd edildi');
-        });    
+        });
     }
-    
+
 }

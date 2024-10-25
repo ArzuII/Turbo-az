@@ -13,7 +13,7 @@ class QueryController extends Controller
     public function create()
     {
         $cars = $this->getCarForSelect();
-        
+
         return view('dashboard.car-model.create', compact('cars'));
     }
 
@@ -31,17 +31,17 @@ class QueryController extends Controller
                 ->join('cars as c', 'c.id', 'cm.car_id')
                 ->join('users as u', 'cm.created_by', 'u.id')
                 ->paginate(10);
-                
-        return view('dashboard.car-model.index', compact('models'));            
+
+        return view('dashboard.car-model.index', compact('models'));
     }
 
     public function edit($id)
     {
         $model = CarModel::query()
                 ->where('id', $id)
-                ->fisrt();
-        
-        if (!$model) 
+                ->first();
+
+        if (!$model)
             abort(404);
 
         $cars = $this->getCarForSelect();
@@ -53,8 +53,8 @@ class QueryController extends Controller
             )
             ->get();
 
-        return view('dashboard.car-model.edit', compact('model', 'cars'));   
-        
+        return view('dashboard.car-model.edit', compact('model', 'cars'));
+
     }
 
     private function getCarForSelect()
@@ -66,6 +66,6 @@ class QueryController extends Controller
         ->whereNull('deleted_at')
         ->orderBy('name')
         ->get();
-             
+
     }
 }

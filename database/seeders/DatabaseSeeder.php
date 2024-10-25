@@ -50,7 +50,7 @@ class DatabaseSeeder extends Seeder
                     'name' => 'Karavan'
                 ],
             ]);
-        
+
         FuelType::query()
         ->insert([
             [
@@ -177,30 +177,30 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'name' => 'Yağış sensoru',
-            ],           
+            ],
             [
                 'name' => 'Mərkəzi qapanma',
-            ],            
+            ],
             [
                 'name' => 'Park radarı',
-            ],            
+            ],
             [
                 'name' => 'Kondisioner',
-            ],            
+            ],
             [
                 'name' => 'Oturacaqların isidilməsi',
-            ],  
+            ],
             [
                 'name' => 'Oturacaqların ventilyasiyası',
-            ],          
+            ],
             [
                 'name' => 'Dəri salon',
             ],
             [
                 'name' => 'Ksenon lampalar',
-            ],        
+            ],
         ]);
-            
+
         // \App\Models\User::factory(count:10)->create();
 
         \App\Models\User::factory()->create([

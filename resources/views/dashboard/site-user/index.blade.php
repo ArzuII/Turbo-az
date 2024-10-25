@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="container-fluid">
+<div class="container-fluid">                                                              
     <div class="row">
         <div class="col-md-10">
             <h1 class="h3 mb-2 text-gray-800">Site registered users</h1>

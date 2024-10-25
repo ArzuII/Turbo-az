@@ -13,6 +13,9 @@
                 @endforeach
             </select>
         </div>
+        <div class="form-group">
+            <input type="text" class="form-control" name="name" value="{{$model->name}}">
+        </div>
         <button class="btn btn-sm btn-block btn-success" type="submit">UPDATE</button>
     </form>
 </div>

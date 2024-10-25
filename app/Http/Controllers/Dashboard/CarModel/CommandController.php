@@ -15,18 +15,19 @@ class CommandController extends Controller
                 ->where('name', $request->name)
                 ->where('car_id', $request->car_id)
                 ->exists();
+
         if($check)
             return to_route('dashboard.car-model.create')->with('fail', self::MESSAGE_DUPLICATE);
-        
+
         $check = CarModel::query()
-                ->select([
-                    'name' => $request->name,
+                ->create([
+                    'name' => $request->model,
                     'car_id' => $request->car_id,
                     'created_by' => auth()->user()->id
-                    
+
                 ]);
-        
-        return to_route('dashboard.car-model.create')->with('success', self::MESSAGE_CREATED);    
+
+        return to_route('dashboard.car-model.create')->with('success', self::MESSAGE_CREATED);
     }
 
     public function update(Request $request, $id)
@@ -37,7 +38,7 @@ class CommandController extends Controller
             ->where('id', '!=', $id)
             ->first();
 
-        if ($check) 
+        if ($check)
             return to_route('dashboard.car-model.edit', $id)->with('fail', self::MESSAGE_DUPLICATE);
 
         CarModel::query()
@@ -49,6 +50,6 @@ class CommandController extends Controller
 
         return to_route('dashboard.car-model.edit', $id)->with('success', self::MESSAGE_UPDATED);
     }
-    
+
 
 }
